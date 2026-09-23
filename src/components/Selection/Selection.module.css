@@ -1,0 +1,40 @@
+.row {
+  display: flex;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1.5px solid transparent;
+  margin: 0 -8px;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.rowFocused {
+  border-color: rgba(245, 158, 11, 0.55);
+  background: rgba(245, 158, 11, 0.06);
+}
+
+.option {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  transition: border-color 0.1s, color 0.1s, background 0.1s;
+}
+
+.option:hover {
+  color: var(--text-secondary);
+  border-color: #3f3f46;
+}
+
+.optionActive {
+  background: var(--bg-elevated);
+  border-color: var(--text-tertiary);
+  color: var(--text-primary);
+}

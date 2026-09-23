@@ -1,0 +1,70 @@
+.row {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1.5px solid transparent;
+  margin: 0 -10px;
+  transition: border-color 0.15s;
+}
+
+.rowFocused {
+  border-color: rgba(245, 158, 11, 0.55);
+  background-color: var(--accent-glow);
+}
+
+.canvas {
+  width: 100%;
+  aspect-ratio: 1;
+  display: block;
+  border-radius: 4px;
+}
+
+.hint {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-tertiary);
+  text-align: center;
+  margin-top: 6px;
+}
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.tab {
+  flex: 1;
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 3px 0;
+  color: var(--text-tertiary);
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.tabActive {
+  color: var(--text-primary, #fff);
+  border-color: rgba(245, 158, 11, 0.55);
+}
+
+.resetBtn {
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 3px 8px;
+  color: var(--text-tertiary);
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+  margin-left: 4px;
+}
+
+.resetBtn:hover {
+  color: var(--text-primary, #fff);
+  border-color: rgba(245, 158, 11, 0.55);
+  background: rgba(255, 255, 255, 0.05);
+}

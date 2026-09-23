@@ -1,0 +1,33 @@
+[package]
+name = "darkslide-core"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+crate-type = ["rlib"]
+
+[[bin]]
+name = "render-cli"
+path = "src/bin/render_cli.rs"
+
+[dependencies]
+image = "0.25"
+base64 = "0.22"
+serde = { version = "1", features = ["derive", "rc"] }
+serde_json = "1"
+rayon    = "1"
+wgpu     = "28.0.0"
+pollster = "0.3"
+bytemuck = "1"
+wagahai_lut = "0.1"
+clap = { version = "4", features = ["derive"] } 
+walkdir = "2"
+log = "0.4.33"
+crc32fast = "1"
+zune-jpeg = "0.5.15"
+fast_image_resize = "6.1.0"
+zune-png = "0.5.2"
+jpeg-encoder = { version = "0.7.1", features = ["simd"] }
+
+[dev-dependencies]
+serde_json = "1"

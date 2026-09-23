@@ -1,0 +1,78 @@
+.sliderRow {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1.5px solid transparent;
+  margin: 0 -10px;
+  transition: border-color 0.15s;
+}
+
+.sliderRowFocused {
+  border-color: rgba(245, 158, 11, 0.55);
+  background-color: var(--accent-glow);
+}
+
+.sliderHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.sliderLabel {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.sliderLabelDisabled {
+  opacity: 0.35;
+}
+
+.sliderRowDisabled {
+  opacity: 0.5;
+}
+
+.sliderValue {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-tertiary);
+  font-variant-numeric: tabular-nums;
+  min-width: 28px;
+  text-align: right;
+}
+
+.sliderRow input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 3px;
+  background: var(--border);
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+.sliderRow input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--text-primary);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.sliderRow input[type="range"]::-webkit-slider-thumb:hover {
+  background: #ffffff;
+}
+
+.sliderRow input[type="range"]::-moz-range-thumb {
+  width: 13px;
+  height: 13px;
+  border: none;
+  border-radius: 50%;
+  background: var(--text-primary);
+  cursor: pointer;
+}

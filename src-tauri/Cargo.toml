@@ -1,0 +1,59 @@
+[package]
+name = "darkslide"
+version = "0.1.20"
+description = "Darkslide"
+authors = ["Roman Volkov"]
+edition = "2024"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+# The `_lib` suffix may seem redundant but it is necessary
+# to make the lib name unique and wouldn't conflict with the bin name.
+# This seems to be only an issue on Windows, see https://github.com/rust-lang/cargo/issues/8519
+name = "darkslide_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+darkslide-core      = { path = "../core" }
+tauri               = { version = "2", features = [] }
+tauri-plugin-opener = "2"
+tauri-plugin-dialog = "2"
+serde               = { version = "1", features = ["derive"] }
+rayon               = "1"
+tauri-plugin-single-instance = "2"
+tauri-plugin-log = "2"
+walkdir = "2.5.0"
+clap = "4.6.1"
+rusqlite = { version = "0.40.1", features = ["bundled"] }
+rusqlite_migration  = { version = "2.6", features = ["from-directory"] }
+include_dir = "0.7.4"
+log = "0.4.33"
+bytemuck = "1.25.1"
+uuid = {version= "1.23.5", features= ["v4"] }
+serde_json = "1"
+chrono = "0.4"
+xattr = "1.6.1"
+tokio = { version = "1.53.0", features = ["rt", "sync", "macros", "fs"] }
+image = "0.25.10"
+percent-encoding = "2.3"
+lru = "0.13"
+
+# Webview snapshot (profiling-only capture of the UI to PNG) — macOS.
+[target.'cfg(target_os = "macos")'.dependencies]
+objc2 = "0.6"
+objc2-foundation = { version = "0.3", features = ["NSString", "NSData", "NSDictionary", "NSError"] }
+objc2-app-kit = { version = "0.3", features = ["NSImage", "NSBitmapImageRep"] }
+objc2-web-kit = { version = "0.3", features = ["WKWebView", "WKSnapshotConfiguration", "block2"] }
+block2 = "0.6"
+
+[dev-dependencies]
+tempfile = "3"
+
+[features]
+default = []
+profiling = ["tauri/devtools"]
+

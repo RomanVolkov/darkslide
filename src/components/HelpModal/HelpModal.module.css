@@ -1,0 +1,12 @@
+.columns {
+  columns: 2;
+  column-gap: 40px;
+}
+
+/* Keep each section whole across the column break so the browser can balance
+   the two columns by rendered height. */
+.section {
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+}

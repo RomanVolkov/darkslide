@@ -1,0 +1,267 @@
+/* ─── Layout ─────────────────────────────────────────────────────────────── */
+
+.layout {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  background-color: var(--bg);
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+.contentArea {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+  padding: 8px 0 0 8px;
+  overscroll-behavior: none;
+}
+
+.contentAreaEmpty,
+.contentArea:only-child {
+  padding-right: 8px;
+  padding-bottom: 8px;
+}
+
+
+.imageArea {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bg);
+  overscroll-behavior: none;
+}
+
+
+/* ─── Original (before) preview badge ───────────────────────────────────── */
+
+.originalBadge {
+  position: absolute;
+  z-index: 100;
+  bottom: 20px;
+  left: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ─── Loading screen ─────────────────────────────────────────────────────── */
+
+.loadingScreen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.loadingLabel {
+  font-family: var(--mono);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin: 0;
+  user-select: none;
+}
+
+.loadingBarTrack {
+  width: 160px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.loadingBarFill {
+  height: 100%;
+  width: 40%;
+  border-radius: 2px;
+  background: var(--text-tertiary);
+  animation: loadingBar 1.2s ease-in-out infinite;
+}
+
+@keyframes loadingBar {
+  0%   { transform: translateX(-100%); }
+  50%  { transform: translateX(150%); }
+  100% { transform: translateX(350%); }
+}
+
+/* ─── Help toggle button ─────────────────────────────────────────────────── */
+
+.helpToggleBtn {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  background: rgba(10, 10, 11, 0.6);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-family: var(--mono);
+  font-size: 21px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.helpToggleBtn:hover {
+  border-color: var(--text-tertiary);
+  color: var(--text-primary);
+}
+
+/* ─── File open overlay ──────────────────────────────────────────────────── */
+
+.fileOpenOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.emptyActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.emptyBtn {
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 8px;
+  background: rgba(14, 14, 16, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  user-select: none;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.emptyBtn:hover {
+  background: rgba(28, 28, 32, 0.85);
+  border-color: var(--text-tertiary);
+  color: var(--text-primary);
+}
+
+.kbdHint {
+  opacity: 0.6;
+  font-size: 11px;
+}
+
+/* ─── Loading spinner ────────────────────────────────────────────────────── */
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  border-top-color: var(--text-secondary);
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ─── Histogram ──────────────────────────────────────────────────────────── */
+
+.histogram {
+  position: absolute;
+  top: 16px;
+  border-radius: 8px;
+  background: rgba(10, 10, 11, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  pointer-events: none;
+}
+
+.histogramTl {
+  left: 16px;
+}
+
+/* ─── Mobile wall ────────────────────────────────────────────────────────── */
+
+.mobileWall { display: none; }
+
+@media (max-width: 767px) and (pointer: coarse) {
+  .layout { display: none; }
+
+  .mobileWall {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: var(--bg);
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+  }
+
+  .mobileWallCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+    max-width: 280px;
+  }
+
+  .mobileWallDot {
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent-warm);
+    margin-bottom: 8px;
+  }
+
+  .mobileWallTitle {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
+
+  .mobileWallMsg {
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  .mobileWallSub {
+    font-size: 13px;
+    color: var(--text-tertiary);
+    line-height: 1.5;
+    margin: 0;
+  }
+}

@@ -1,0 +1,211 @@
+.filmstrip {
+  height: 110px;
+  flex-shrink: 0;
+  display: flex;
+  gap: 8px;
+  padding: 8px 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior: contain;
+  background: var(--bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  margin: 0 0 8px 0;
+  transition: border-color 0.15s;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+.filmstrip::-webkit-scrollbar {
+  height: 4px;
+}
+
+.filmstrip::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.filmstrip::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 2px;
+}
+
+.filmstripFocused {
+  border-color: rgba(245, 158, 11, 0.45);
+}
+
+.virtualTrack {
+  position: relative;
+  flex-shrink: 0;
+  height: 100%;
+}
+
+.virtualTrackGrid {
+  position: relative;
+  box-sizing: border-box;
+}
+
+.filmstripGrid {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background: var(--bg);
+  padding: 24px 16px 64px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  box-sizing: border-box;
+  margin: 0;
+  border-radius: 0;
+  border: none;
+  transition: none;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.thumbWrapper {
+  position: relative;
+  width: 80px;
+  height: 60px;
+  border-radius: 4px;
+  border: 1.5px solid transparent;
+  background: var(--bg-elevated);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: border-color 0.12s, background-color 0.12s;
+}
+
+.itemGrid .thumbWrapper {
+  width: 176px;
+  height: 132px;
+  border-radius: 12px;
+}
+
+.itemSelected .thumbWrapper {
+  border-color: rgba(100, 180, 255, 0.6);
+  background: rgba(100, 180, 255, 0.05);
+}
+
+.itemActive .thumbWrapper {
+  border-color: rgba(245, 158, 11, 0.6);
+  background: var(--accent-glow);
+}
+
+.deleteBtn {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #a1a1aa;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.15s ease, background 0.15s ease, color 0.15s ease;
+  z-index: 5;
+  cursor: pointer;
+  padding: 0;
+}
+
+.thumbWrapper:hover .deleteBtn {
+  opacity: 1;
+}
+
+.deleteBtn:hover {
+  background: rgba(239, 68, 68, 0.9);
+  border-color: rgba(239, 68, 68, 1);
+  color: #ffffff;
+}
+
+.canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  border-radius: inherit;
+  transition: opacity 0.15s ease;
+}
+
+.label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-tertiary);
+  max-width: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.bottomBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 31;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  background: var(--surface);
+  border-top: 1px solid rgba(245, 158, 11, 0.45);
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-primary);
+}
+
+.loadingOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  background: var(--bg-elevated);
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  border-top-color: var(--text-secondary);
+  animation: spin 0.7s linear infinite;
+}
+
+.itemGrid .spinner {
+  width: 24px;
+  height: 24px;
+  border-width: 2px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.editDot {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.9));
+}
+

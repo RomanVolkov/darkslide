@@ -1,0 +1,172 @@
+.searchRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.clearBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text-tertiary);
+  font-family: var(--mono);
+  font-size: 13px;
+  cursor: pointer;
+  transition: color 0.1s;
+  padding: 0;
+  line-height: 1;
+}
+
+.clearBtn:hover {
+  color: var(--text-primary);
+}
+
+.inputWrapper {
+  flex: 1;
+  border: 1.5px solid transparent;
+  border-radius: 6px;
+  transition: border-color 0.15s;
+}
+
+.inputFocused {
+  border-color: rgba(245, 158, 11, 0.45);
+}
+
+.inputNeutral {
+  border-color: var(--border);
+}
+
+.searchInput {
+  width: 100%;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  font-family: var(--mono);
+  font-size: 13px;
+  outline: none;
+}
+
+.searchInput::placeholder {
+  color: var(--text-tertiary);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  max-height: 360px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  margin: 0;
+  border-left: 2px solid transparent;
+  border-radius: 0;
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--text-secondary);
+  background: transparent;
+  transition: background 0.1s, border-color 0.1s, color 0.1s;
+}
+
+.row:hover {
+  background: var(--bg-hover);
+}
+
+.rowSelected {
+  background: var(--bg-hover);
+  border-left-color: rgba(245, 158, 11, 0.45);
+  color: var(--text-primary);
+}
+
+.rowSeparator {
+  height: 1px;
+  margin: 0 12px;
+  background: var(--border);
+}
+
+.confirmStrip {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: var(--bg-elevated);
+}
+
+.confirmPrompt {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--text-primary);
+}
+
+.confirmHint {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+.confirmActions {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.confirmBtn {
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #fca5a5;
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.confirmBtn:hover {
+  background: rgba(239, 68, 68, 0.35);
+  color: #fff;
+}
+
+.cancelBtn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--text-secondary);
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.cancelBtn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--text-primary);
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  justify-content: center;
+  margin-top: 20px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-tertiary);
+}

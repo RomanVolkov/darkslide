@@ -1,0 +1,98 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 10px;
+    margin: 0 -10px;
+    border-radius: 8px;
+    user-select: none;
+    outline: none;
+    border: 1.5px solid transparent;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+    gap: 10px;
+}
+
+.containerFocused {
+    border-color: rgba(245, 158, 11, 0.55);
+    background-color: var(--accent-glow);
+}
+
+.containerActive {
+    border-color: rgba(245, 158, 11, 0.55);
+    background-color: var(--accent-glow);
+}
+
+.swatchBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2px 0;
+    gap: 4px;
+}
+
+.swatchChip {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.15s ease;
+}
+
+.swatchChipSelected {
+    border-color: rgba(255, 255, 255, 0.45);
+}
+
+.activeDot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #141416;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.6);
+}
+
+.editDot {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: #f59e0b;
+    border: 1px solid #141416;
+    pointer-events: none;
+}
+
+.headerRow {
+    display: flex;
+    align-items: center;
+    padding: 0 2px;
+}
+
+.channelTitle {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-secondary, #9ca3af);
+}
+
+.slidersList {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.hint {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-tertiary);
+    text-align: center;
+    margin-top: 6px;
+}

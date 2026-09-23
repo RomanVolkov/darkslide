@@ -1,0 +1,68 @@
+/* ─── Design tokens (from Darkslide landing page) ───────────────────────── */
+
+:root {
+  --bg:            #0A0A0B;
+  --bg-elevated:   #111113;
+  --bg-hover:      #1A1A1E;
+  --surface:       #18181B;
+  --border:        #27272A;
+  --border-subtle: #1E1E22;
+
+  --text-primary:   #FAFAFA;
+  --text-secondary: #A1A1AA;
+  --text-tertiary:  #71717A;
+
+  --accent-warm: #F59E0B;
+  --accent-glow: rgba(245, 158, 11, 0.12);
+
+  --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  --sans: 'Instrument Sans', -apple-system, Helvetica, Arial, sans-serif;
+
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--text-primary);
+  background-color: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+input,
+textarea,
+[contenteditable="true"] {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+*:not(input):not(textarea):not([contenteditable="true"])::selection {
+  background: transparent;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+  position: fixed;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+}

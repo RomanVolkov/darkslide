@@ -1,0 +1,24 @@
+[workspace]
+members = ["core", "src-tauri"]
+resolver = "2"
+
+# Release: full optimisations + thin LTO (enables cross-crate inlining without
+# the full multi-minute link cost of fat LTO). SIMD is activated via
+# RUSTFLAGS='-C target-cpu=native' in the tauri:release npm script.
+[profile.release]
+opt-level     = 3
+lto           = "thin"
+codegen-units = 1
+
+# Dev: keep compilation fast for app code, but compile image-processing crates
+# at opt-level 3 so decode/render speed is representative even in `tauri:dev`.
+[profile.dev.package.darkslide-core]
+opt-level = 3
+
+[profile.dev.package.image]
+opt-level = 3
+
+
+[profile.profiling]
+inherits = "release"
+debug = true

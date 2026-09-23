@@ -1,0 +1,13 @@
+.settingsStack {
+  display: grid;
+}
+
+.settingsStack > * {
+  grid-area: 1 / 1;
+}
+
+.exportRow {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}

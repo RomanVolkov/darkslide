@@ -1,0 +1,41 @@
+{
+  "name": "darkslide",
+  "private": true,
+  "version": "0.1.20",
+  "type": "module",
+  "scripts": {
+    "ui:dev": "vite",
+    "build": "tsc && vite build",
+    "app:dev": "DARKSLIDE_ENV=dev RUST_LOG=debug,wgpu=warn tauri dev",
+    "app:release": "DARKSLIDE_ENV=release RUSTFLAGS='-C target-cpu=native' tauri dev -- --release",
+    "app:profile": "bash profile.sh",
+    "app:profile:scenario": "bash profile.sh --scenario",
+    "app:dmg": "export SKIP_NOTARIZATION=true && source ./.env && bash build_mac_dmg.sh",
+    "release": "bash release.sh",
+    "render:cli": "cargo run -p darkslide-core --bin render-cli --",
+    "render:cli:release": "cargo run -p darkslide-core --bin render-cli --release --",
+    "test": "bunx vitest run && cargo test --workspace"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2.11.1",
+    "@tauri-apps/plugin-dialog": "^2.7.1",
+    "@tauri-apps/plugin-opener": "^2",
+    "immer": "^11.1.8",
+    "preact": "^10.29.8",
+    "zustand": "^5.0.13"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.10.6",
+    "@tauri-apps/cli": "^2.11.4",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/preact": "^3.2.4",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^26.1.2",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "jsdom": "^29.0.1",
+    "typescript": "~5.8.3",
+    "vite": "^7.3.1",
+    "vitest": "^4.1.2"
+  }
+}
